@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KanbanFlow — Espace de Gestion Modulaire</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- Barre supérieure -->
+    <header class="navbar">
+      <div class="brand">
+        <span class="brand-icon">▦</span>
+        <h1>KanbanFlow</h1>
+      </div>
+      <div class="actions">
+        <input type="text" id="search-input" placeholder="Rechercher une tâche..." />
+        <button id="btn-new-task" class="btn primary">+ Nouvelle tâche</button>
+        <button id="btn-export" class="btn secondary">Exporter JSON</button>
+      </div>
+    </header>
+
+    <!-- Grille Kanban (3 Colonnes) -->
+    <main class="board-grid">
+      <!-- Colonne 1 : À faire -->
+      <section class="column" data-column="todo">
+        <header class="column-header">
+          <h2>À faire</h2>
+          <span class="task-count" id="count-todo">0</span>
+        </header>
+        <div class="dropzone" id="zone-todo"></div>
+      </section>
+
+      <!-- Colonne 2 : En cours -->
+      <section class="column" data-column="in_progress">
+        <header class="column-header">
+          <h2>En cours</h2>
+          <span class="task-count" id="count-in_progress">0</span>
+        </header>
+        <div class="dropzone" id="zone-in_progress"></div>
+      </section>
+
+      <!-- Colonne 3 : Terminé -->
+      <section class="column" data-column="done">
+        <header class="column-header">
+          <h2>Terminé</h2>
+          <span class="task-count" id="count-done">0</span>
+        </header>
+        <div class="dropzone" id="zone-done"></div>
+      </section>
+    </main>
+
+    <!-- Modal de création de tâche -->
+    <div id="modal" class="modal-backdrop hidden">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h3>Ajouter une nouvelle tâche</h3>
+          <button id="btn-close-modal" class="btn-close">&times;</button>
+        </header>
+        <form id="task-form">
+          <div class="form-group">
+            <label for="task-title">Titre *</label>
+            <input type="text" id="task-title" required placeholder="Ex: Corriger la latence réseau" />
+          </div>
+          <div class="form-group">
+            <label for="task-desc">Description</label>
+            <textarea id="task-desc" rows="3" placeholder="Détails de la tâche..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-priority">Priorité</label>
+              <select id="task-priority">
+                <option value="low">Basse</option>
+                <option value="medium" selected>Moyenne</option>
+                <option value="high">Haute</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-column">Colonne</label>
+              <select id="task-column">
+                <option value="todo">À faire</option>
+                <option value="in_progress">En cours</option>
+                <option value="done">Terminé</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button type="button" id="btn-cancel" class="btn secondary">Annuler</button>
+            <button type="submit" class="btn primary">Créer la tâche</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
