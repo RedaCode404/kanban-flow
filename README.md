@@ -3,7 +3,7 @@
 Application front-end de type Kanban (inspirée de Trello/Linear) permettant la gestion de tâches via une interface fluide. Ce projet met en avant la manipulation avancée du DOM, la gestion d'état locale et l'utilisation de l'API native HTML5 Drag-and-Drop, sans dépendance à une librairie tierce complexe.
 
 ## Démo en ligne
-*(Lien de déploiement à venir)*
+[Tester l'application en direct](https://kanban-flow-snowy.vercel.app/)
 
 ## Architecture et Choix Techniques
 - **Drag-and-Drop Natif :** Utilisation des événements HTML5 (`dragstart`, `dragover`, `drop`) pour des performances optimales et une compréhension bas niveau des interactions navigateur.
